@@ -3,10 +3,11 @@
 ## I. Introduction
 
 
-Apple introduced the Digital Audio Access Protocol (DAAP[1]) with
+Apple introduced the Digital Audio Access Protocol (DAAP
+<sup id="a1">[1](#f1)</sup>) with
 iTunes4, to allow iTunes to share its library with other machines also
-running iTunes.  iTunes uses the Rendezvous protocol[2], specifically
-the multi-cast dns and service discovery bits, to find other local
+running iTunes.  iTunes uses the Rendezvous protocol <sup id="a2">[2](#f2)</sup>,
+specifically the multi-cast dns and service discovery bits, to find other local
 machines that happen to be running iTunes and also sharing their
 libraries.
 
@@ -63,11 +64,11 @@ uses that information to provide a search engine.
 
 
 At it's heart, DAAP is the latest in a long line of protocols that
-uses HTTP[3] as it's underlying transport mechanism.  It appears to
-prefer using the connection-oriented HTTP/1.1 - though there is also
-some support, it seems, for HTTP/1.0.  This document will focus on the
-HTTP/1.1 implementation, and assume that the HTTP/1.0 implementation
-is around for some strange legacy reason.
+uses HTTP <sup id="a3">[3](#f3)</sup> as it's underlying transport mechanism.
+It appears to prefer using the connection-oriented HTTP/1.1.
+*Though there is also some support, it seems, for HTTP/1.0.  This document will
+focus on the HTTP/1.1 implementation, and assume that the HTTP/1.0 implementation
+is around for some strange legacy reason.*
 
 (Note: the specifics of writing HTTP clients and servers are beyond
 the scope of this document.  There are a number of excellent libraries
@@ -507,7 +508,9 @@ types, however they have not yet been confirmed)
 
 ## Footnotes
 
-1. It is my assumption, at least, that this is what DAAP stands for
-2. Apples implementation of the zeroconf standards
-3. HyperText Transport Protocol - although, these days it's shunting
-   around a lot more than hypertext, no?
+<b id="f1">1</b> It is my assumption, at least, that this is what DAAP stands for [↩](#a1)
+
+<b id="f2">2</b> Apples implementation of the zeroconf standards [↩](#a2)
+
+<b id="f3">3</b> HyperText Transport Protocol - although, these days it's shunting
+around a lot more than hypertext, no? [↩](#a3)
