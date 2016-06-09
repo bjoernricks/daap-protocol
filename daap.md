@@ -527,20 +527,20 @@ the reader.  (note: many of these should be self explanatory)
 (Note: the ones in parenthesis are assumed based on the arrangement of
 types, however they have not yet been confirmed)
 
-|id |type            | size    | description |
-|---|----------------|---------|-------------|
-|1  |byte            |  8 bit  |             |
-|2  |(unsigned byte) |  8 bit  |             |
-|3  |short           | 16 bit  |             |
-|4  |(unsigned short)| 16 bit  |             |
-|5  |int             | 32 bit  |             |
-|6  |(unsigned int)  | 32 bit  |             |
-|7  |long            | 64 bit  |             |
-|8  |(unsigned long) | 64 bit  |             |
-|9  |string          |         | Encoded as UTF-8 |
-|10 |date            |  4 byte | 4 byte int as seconds since 1.1.1970 (UNIX timestamp) |
-|11 |version         |  4 byte | represented as 4 single bytes, e.g. 0.1.0.0 or as two shorts, e.g. 1.0 |
-|12 |list            |         |             |
+|id |type            | size     | description |
+|--:|:---------------|---------:|:------------|
+|1  |byte            |   1 byte |             |
+|2  |(unsigned byte) |   1 byte |             |
+|3  |short           |   2 byte |             |
+|4  |(unsigned short)|   2 byte |             |
+|5  |int             |   4 byte |             |
+|6  |(unsigned int)  |   4 byte |             |
+|7  |long            |   8 byte |             |
+|8  |(unsigned long) |   8 byte |             |
+|9  |string          | variable | Encoded as UTF-8 |
+|10 |date            |   4 byte | 4 byte int as seconds since 1.1.1970 (UNIX timestamp) |
+|11 |version         |   4 byte | represented as 4 single bytes, e.g. 0.1.0.0 or as two shorts, e.g. 1.0 |
+|12 |list            | variable |             |
 
 
 ## Footnotes
