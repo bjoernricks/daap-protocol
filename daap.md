@@ -1,9 +1,6 @@
-         Digital Audio Access Protocol (DAAP)
-             Protocol documentation v0.2
-                           daap@tapjam.net
+# Digital Audio Access Protocol (DAAP) Protocol documentation v0.2 (daap@tapjam.net)
 
-
-I. Introduction
+## I. Introduction
 
 
 Apple introduced the Digital Audio Access Protocol (DAAP[1]) with
@@ -32,7 +29,7 @@ PART 1 - High level overview
 
 
 
-II. DAAP Overview
+## II. DAAP Overview
 
 
 DAAP, in a nutshell, is a fairly simple protocol.  Once iTunes has
@@ -62,7 +59,7 @@ protocol to download the playlists of servers registered with it, and
 uses that information to provide a search engine.
 
 
-III. Under the Hood - the DAAP packet format
+## III. Under the Hood - the DAAP packet format
 
 
 At it's heart, DAAP is the latest in a long line of protocols that
@@ -130,7 +127,7 @@ contain multiple code/size/data blocks, one for each item in the list.
 All sizes are in bytes and count only the following data block.
 
 
-IV. Client/Server conversation overview
+## IV. Client/Server conversation overview
 
 
 Here's a quick diagram of the flow of requests/responses in a DAAP
@@ -174,7 +171,7 @@ documented.  (Note: daap://server can be interchanged with
 http://server:3689 for purposes of coding/using command line utilities
 such as curl/wget to poke at things)
 
-1. Server Info
+### 1. Server Info
 
 Request: daap://server/server-info (or http://server:3689/)
 Response: msrv
@@ -198,7 +195,7 @@ Content: (See appendix A for detailed information on codes)
       mpro - dmap protocol version
 
 
-2. Content Codes
+### 2. Content Codes
 
 Request: daap://server/content-codes
 Response: mccr
@@ -234,7 +231,7 @@ Content:
       mlid  session id (used in remaining requests &lt;sid&gt; below)
 
 
-4. Update (and server revision)
+### 4. Update (and server revision)
 
 Request: daap://server/update?session-id=&lt;sid&gt;
 Response: mupd
@@ -248,7 +245,7 @@ Conent:
       musr  the server revision (&lt;rid&gt; below)
       mstt
 
-5. Database list
+### 5. Database list
 
 Request: daap://server/databases?session-id=&lt;sid&gt;&amp;revision-id=&lt;rid&gt;
 Response: avdb
@@ -271,7 +268,7 @@ Content:
 
 
 
-6. Song list
+### 6. Song list
 
 Request: daap://server/databases/&lt;dbid&gt;/items?type=music&amp;meta=&lt;list of
 fields&gt;&amp;session-id=&lt;sid&gt;&amp;revision-id=&lt;rid&gt;
@@ -313,7 +310,7 @@ Response:
           minm - item name (e.g. the trackname)
           ...  - the remaining fields for the track
 
-7. Playlist list
+### 7. Playlist list
 
 Request: daap://server/databases/&lt;dbid&gt;/containers?meta=&lt;containermeta&gt;&amp;session-id=&lt;sid&gt;&amp;revision-id=&lt;rid&gt;
 Response: aply
@@ -339,7 +336,7 @@ Content:
           aeSP (optional) - is it a smart playlist
 
 
-8. Playlist
+### 8. Playlist
 
 Request: daap://server/databases/&lt;dbid&gt;/containers/&lt;plid&gt;/items?type=music&amp;meta=&lt;playlistmeta&gt;&amp;session-id=&lt;sid&gt;&amp;revision-id=&lt;rid&gt;
 Response: apso
@@ -361,7 +358,7 @@ Content:
           miid - itemid of the song
           containeritemid - id in the container
 
-9. Stream song
+### 9. Stream song
 
 Request: daap://server/databases/&lt;dbid&gt;/items/&lt;songid&gt;.mp3?session-id=session
 Response: streamed mp3
@@ -374,7 +371,7 @@ Description: Request a song from the server.  Note that it is possible
 Content: the raw mp3 stream
 
 
-Appendix A - iTunes4 content codes
+## Appendix A - iTunes4 content codes
 
 
 This is a list of the content codes used by iTunes4.  Note, the
@@ -486,7 +483,7 @@ aeNV    int com.apple.itunes.norm-volume
 aeSP    byte    com.apple.itunes.smart-playlist
 
 
-Appendix B - iTunes4 content types
+## Appendix B - iTunes4 content types
 
 
 (Note: the ones in parenthesis are assumed based on the arrangement of
@@ -508,9 +505,9 @@ types, however they have not yet been confirmed)
 |12 |list            |         |             |
 
 
-Footnotes
+## Footnotes
 
 1. It is my assumption, at least, that this is what DAAP stands for
 2. Apples implementation of the zeroconf standards
 3. HyperText Transport Protocol - although, these days it's shunting
-around a lot more than hypertext, no?
+   around a lot more than hypertext, no?
