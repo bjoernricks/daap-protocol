@@ -265,7 +265,7 @@ Content:
 
 ### 4. Update (and server revision)
 
-Request: daap://server/update?session-id=<sid>
+Request: daap://server/update?session-id=**&lt;sid&gt;**
 
 Response: mupd
 
@@ -284,7 +284,7 @@ Conent:
 
 ### 5. Database list
 
-Request: daap://server/databases?session-id=<sid>&revision-id=<rid>
+Request: daap://server/databases?session-id=**&lt;sid&gt;**&revision-id=**&lt;rid&gt;**
 
 Response: avdb
 
@@ -310,7 +310,7 @@ Content:
 
 ### 6. Song list
 
-Request: daap://server/databases/<dbid>/items?type=music&meta=<list of fields>&session-id=<sid>&revision-id=<rid>
+Request: daap://server/databases/**&lt;dbid&gt;**/items?type=music&meta=**&lt;list of fields&gt;**&session-id=**&lt;sid&gt;**&revision-id=**&lt;rid&gt;**
 
 Response: apso
 
@@ -357,7 +357,7 @@ Response:
 
 ### 7. Playlist list
 
-Request: daap://server/databases/<dbid>/containers?meta=<containermeta>&session-id=<sid>&revision-id=<rid>
+Request: daap://server/databases/**&lt;dbid&gt;**/containers?meta=**&lt;containermeta&gt;**&session-id=**&lt;sid&gt;**&revision-id=**&lt;rid&gt;**
 
 Response: aply
 
@@ -389,7 +389,7 @@ Content:
 
 ### 8. Playlist
 
-Request: daap://server/databases/<dbid>/containers/<plid>/items?type=music&meta=<playlistmeta>&session-id=<sid>&revision-id=<rid>
+Request: daap://server/databases/**&lt;dbid&gt;**/containers/**&lt;plid&gt;**/items?type=music&meta=**&lt;playlistmeta&gt;**&session-id=**&lt;sid&gt;**&revision-id=**&lt;rid&gt;**
 
 Response: apso
 
@@ -417,7 +417,7 @@ Content:
 
 ### 9. Stream song
 
-Request: daap://server/databases/<dbid>/items/<songid>.mp3?session-id=session
+Request: daap://server/databases/**&lt;dbid&gt;**/items/**&lt;itemid&gt;**.mp3?session-id=**&lt;sid&gt;**
 
 Response: streamed mp3
 
