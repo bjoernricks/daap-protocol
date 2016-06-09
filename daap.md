@@ -225,7 +225,7 @@ Content: ( See Appendix A for detailed code information )
         mcty    item type
 ```
 
-3. Login (and session id)
+### 3. Login (and session id)
 
 Request: daap://server/login
 
