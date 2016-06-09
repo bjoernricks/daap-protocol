@@ -144,32 +144,39 @@ Here's a quick diagram of the flow of requests/responses in a DAAP
 session:
 
 ```
-client              server  Description
-      ---/server-info---->       Request for server info
-    <-------msrv-------      server info response
-      ---/content-codes-->       request for content-codes
-    <-------mccr-------      content-codes response
-      ---/login---------->       login
-    <-------mlog-------      login response (with sessionid)
-      ---/update--------->       update request
-    <-------mupd-------      update response (with server
-                    rev)
-      ---/databases------>       database request
-    <-------avdb-------      data base response (with dbid)
-      ---/db/id/items---->       request songs
-        <-------adbs-------      list of songs in database
-      -/db/id/containers->       request playlists
-    <-------aply-------      list of playlists in database
-      -/db/id/c/id/items->       request playlist
-    <-------apso-------      list of songs in playlist
-      -/db/id/c/id/items->
-    <-------apso-------
-      -/db/id/c/id/items->
-    <-------apso-------
-      -/db/id/c/id/items->
-    <-------apso-------
-      -/db/id/items/x.mp3->      request mp3
-    <--stream-mp3-file-      stream'd mp3
+    client        server   Description
+    ---/server-info---->   Request for server info
+    <-------msrv--------   server info response
+
+    ---/content-codes-->   request for content-codes
+    <-------mccr--------   content-codes response
+
+    ---/login---------->   login
+    <-------mlog--------   login response (with sessionid)
+
+    ---/update--------->   update request
+    <-------mupd--------   update response (with server rev)
+
+    ---/databases------>   database request
+    <-------avdb--------   data base response (with dbid)
+
+    ---/db/id/items---->   request songs
+    <-------adbs-------    list of songs in database
+
+    -/db/id/containers->   request playlists
+    <-------aply--------   list of playlists in database
+
+    -/db/id/c/id/items->   request playlist
+    <-------apso--------   list of songs in playlist
+    -/db/id/c/id/items->
+    <-------apso--------
+    -/db/id/c/id/items->
+    <-------apso--------
+    -/db/id/c/id/items->
+    <-------apso--------
+
+    -/db/id/items/x.mp3->  request mp3
+    <--stream-mp3-file---  stream'd mp3
 ```
 
 (For some reason, the iTunes server flags the content type as
