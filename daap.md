@@ -425,109 +425,100 @@ This is a list of the content codes used by iTunes4.  Note, the
 conversion from four letter code to integer is left as an exercise for
 the reader.  (note: many of these should be self explanatory)
 
-Code    Type    Name            Description
-mdcl    list    dmap.dictionary     a dictionary entry
-mstt    int dmap.status     the response status code,
-                    these appear to be http status
-                    codes, e.g. 200
-miid    int dmap.itemid     an item's id
-minm    string  dmap.itemname       an items name
-mikd    byte    dmap.itemkind       the kind of item.  So far,
-                    only '2' has been seen, an
-                    audio file?
-mper    long    dmap.persistentid   a persistend id
-mcon    list    dmap.container      an arbitrary container
-mcti    int dmap.containeritemid    the id of an item in its
-                    container
-mpco    int dmap.parentcontainerid
-msts    string  dmap.statusstring
-mimc    int dmap.itemcount      number of items in a container
-mrco    int dmap.returnedcount  number of items returned in a
-                    request
-mtco    int dmap.specifiedtotalcount number of items in response
-                    to a request
-mlcl    list    dmap.listing        a list
-mlit    list    dmap.listingitem    a single item in said list
-mbcl    list    dmap.bag
-mdcl    list    dmap.dictionary
-
-msrv    list    dmap.serverinforesponse response to a /server-info
-msaud   byte    dmap.authenticationmethod (should be self explanitory)
-mslr    byte    dmap.loginrequired
-mpro    version dmap.protocolversion
-apro    version daap.protocolversion
-msal    byte    dmap.supportsuatologout
-msup    byte    dmap.supportsupdate
-mspi    byte    dmap.supportspersistentids
-msex    byte    dmap.supportsextensions
-msbr    byte    dmap.supportsbrowse
-msqy    byte    dmap.supportsquery
-msix    byte    dmap.supportsindex
-msrs    byte    dmap.supportsresolve
-mstm    int dmap.timeoutinterval
-msdc    int dmap.databasescount
-
-mccr    list    dmap.contentcodesresponse   the response to the
-                        content-codes request
-mcnm    int dmap.contentcodesnumber the four letter code
-mcna    string  dmap.contentcodesname   the full name of the code
-mcty    short   dmap.contentcodestype   the type of the code (see
-                    appendix b for type values)
-
-mlog    list    dmap.loginresponse  response to a /login
-mlid    int dmap.sessionid      the session id for the login session
-
-mupd    list    dmap.updateresponse response to a /update
-msur    int dmap.serverrevision revision to use for requests
-muty    byte    dmap.updatetype
-mudl    list    dmap.deletedidlisting   used in updates?  (document soon)
-
-avdb    list    daap.serverdatabases    response to a /databases
-abro    list    daap.databasebrowse
-abal    list    daap.browsealbumlistung
-abar    list    daap.browseartistlisting
-abcp    list    daap.browsecomposerlisting
-abgn    list    daap.browsegenrelisting
-
-adbs    list    daap.databasesongs  repsoonse to a /databases/id/items
-asal    string  daap.songalbum      the song ones should be self exp.
-asar    string  daap.songartist
-asbt    short   daap.songsbeatsperminute
-asbr    short   daap.songbitrate
-ascm    string  daap.songcomment
-asco    byte    daap.songcompilation
-asda    date    daap.songdateadded
-asdm    date    daap.songdatemodified
-asdc    short   daap.songdisccount
-asdn    short   daap.songdiscnumber
-asdb    byte    daap.songdisabled
-aseq    string  daap.songeqpreset
-asfm    string  daap.songformat
-asgn    string  daap.songgenre
-asdt    string  daap.songdescription
-asrv    byte    daap.songrelativevolume
-assr    int daap.songsamplerate
-assz    int daap.songsize
-asst    int daap.songstarttime  (in milliseconds)
-assp    int daap.songstoptime   (in milliseconds)
-astm    int daap.songtime       (in milliseconds)
-astc    short   daap.songtrackcount
-astn    short   daap.songtracknumber
-asur    byte    daap.songuserrating
-asyr    short   daap.songyear
-asdk    byte    daap.songdatakind
-asul    string  daap.songdataurl
-
-aply    list    daap.databaseplaylists  response to /databases/id/containers
-abpl    byte    daap.baseplaylist
-
-apso    list    daap.playlistsongs  response to
-                    /databases/id/containers/id/items
-prsv    list    daap.resolve
-arif    list    daap.resolveinfo
-
-aeNV    int com.apple.itunes.norm-volume
-aeSP    byte    com.apple.itunes.smart-playlist
+|Code |  Type  |  Name             | Description                               |
+|----:|:------:|:-----------------:|:------------------------------------------|
+|mdcl |  list  | dmap.dictionary   | a dictionary entry |
+|mstt |  int   | dmap.status       | the response status code these appear to be http status codes, e.g. 200 |
+|miid |  int   | dmap.itemid       | an item's id |
+|minm | string | dmap.itemname     | an items name |
+|mikd |  byte  | dmap.itemkind     | the kind of item.  So far, only '2' has been seen, an audio file? |
+|mper |  long  | dmap.persistentid | a persistend id |
+|mcon |  list  | dmap.container    | an arbitrary container |
+|mcti |  int   |dmap.containeritemid | the id of an item in its container |
+|mpco |  int   | dmap.parentcontainerid | |
+|msts | string | dmap.statusstring | |
+|mimc |  int   | dmap.itemcount | number of items in a container |
+|mrco |  int   | dmap.returnedcount | number of items returned in a request |
+|mtco |  int   | dmap.specifiedtotalcount number of items in response to a request |
+|mlcl |  list  | dmap.listing      | a list |
+|mlit |  list  | dmap.listingitem  | a single item in said list |
+|mbcl |  list  | dmap.bag          | |
+|mdcl |  list  | dmap.dictionary   | |
+||
+|msrv |  list  | dmap.serverinforesponse response to a /server-info |
+|msaud|  byte  | dmap.authenticationmethod (should be self explanitory) |
+|mslr |  byte  | dmap.loginrequired |
+|mpro | version| dmap.protocolversion |
+|apro | version| daap.protocolversion |
+|msal |  byte  | dmap.supportsuatologout |
+|msup |  byte  | dmap.supportsupdate |
+|mspi |  byte  | dmap.supportspersistentids |
+|msex |  byte  | dmap.supportsextensions |
+|msbr |  byte  | dmap.supportsbrowse |
+|msqy |  byte  | dmap.supportsquery |
+|msix |  byte  | dmap.supportsindex |
+|msrs |  byte  | dmap.supportsresolve |
+|mstm |  int   | dmap.timeoutinterval |
+|msdc |  int   |dmap.databasescount |
+||
+|mccr |  list  | dmap.contentcodesresponse   the response to the content-codes request |
+|mcnm |  int   | dmap.contentcodesnumber the four letter code |
+|mcna | string | dmap.contentcodesname   the full name of the code |
+|mcty |  short | dmap.contentcodestype   the type of the code (see appendix b for type values) |
+||
+|mlog |  list  | dmap.loginresponse | response to a /login |
+|mlid |  int   | dmap.sessionid     | the session id for the login session |
+||
+|mupd |  list  | dmap.updateresponse | response to a /update |
+|msur |  int   | dmap.serverrevision | revision to use for requests |
+|muty |  byte  | dmap.updatetype | |
+|mudl |  list  | dmap.deletedidlisting | used in updates?  (document soon) |
+||
+|avdb |  list  | daap.serverdatabases |  response to a /databases |
+|abro |  list  | daap.databasebrowse | |
+|abal |  list  | daap.browsealbumlistung | |
+|abar |  list  | daap.browseartistlisting | |
+|abcp |  list  | daap.browsecomposerlisting | |
+|abgn |  list  | daap.browsegenrelisting | |
+||
+|adbs |  list  | daap.databasesongs | repsoonse to a /databases/id/items |
+|asal |  string| daap.songalbum     | the song ones should be self exp. |
+|asar |  string| daap.songartist | |
+|asbt |  short | daap.songsbeatsperminute | |
+|asbr |  short | daap.songbitrate | |
+|ascm |  string| daap.songcomment | |
+|asco |  byte  | daap.songcompilation | |
+|asda |  date  | daap.songdateadded | |
+|asdm |  date  | daap.songdatemodified | |
+|asdc |  short | daap.songdisccount | |
+|asdn |  short | daap.songdiscnumber | |
+|asdb |  byte  | daap.songdisabled | |
+|aseq |  string| daap.songeqpreset | |
+|asfm |  string| daap.songformat | |
+|asgn |  string| daap.songgenre | |
+|asdt |  string| daap.songdescription | |
+|asrv |  byte  | daap.songrelativevolume | |
+|assr |  int   | daap.songsamplerate | |
+|assz |  int   | daap.songsize | |
+|asst |  int   | daap.songstarttime | (in milliseconds) |
+|assp |  int   | daap.songstoptime  | (in milliseconds) |
+|astm |  int   | daap.songtime      | (in milliseconds) |
+|astc |  short | daap.songtrackcount | |
+|astn |  short | daap.songtracknumber | |
+|asur |  byte  | daap.songuserrating | |
+|asyr |  short | daap.songyear | |
+|asdk |  byte  | daap.songdatakind | |
+|asul |  string| daap.songdataurl | |
+||
+|aply |  list  | daap.databaseplaylists |  response to /databases/id/containers |
+|abpl |  byte  | daap.baseplaylist | |
+| |
+|apso |  list  | daap.playlistsongs  response to /databases/id/containers/id/items |
+|prsv |  list  | daap.resolve | |
+|arif |  list  | daap.resolveinfo | |
+| |
+|aeNV |  int   | com.apple.itunes.norm-volume | |
+|aeSP |  byte  |  com.apple.itunes.smart-playlist | |
 
 
 ## Appendix B - iTunes4 content types
