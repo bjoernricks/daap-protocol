@@ -1,4 +1,8 @@
-# Digital Audio Access Protocol (DAAP) Protocol documentation v0.2 (daap@tapjam.net)
+# Digital Audio Access Protocol (DAAP) Protocol documentation
+
+**Version 0.2**
+
+The original version 0.2 can be found at http://tapjam.net/daap/
 
 ## I. Introduction
 
