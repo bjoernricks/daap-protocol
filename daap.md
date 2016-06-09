@@ -103,15 +103,19 @@ in the iTunes conversation.
 An example, simple dmap-tagged block, the response to a /login
 request:
 
+```
 0000000  155 154 157 147 000 000 000 044 155 163 164 164 000 000 000 004
            m   l   o   g  \0  \0  \0   $   m   s   t   t  \0  \0  \0 004
 0000020  000 000 000 310 155 154 151 144 000 000 000 004 000 000 037 336
           \0  \0  \0 310   m   l   i   d  \0  \0  \0 004  \0  \0 037 336
+```
 
 or:
+```
     mlog (36 bytes)
       mstt - 200  (4 bytes)
       mlid - 8158 (4 bytes)
+```
 
 NOTE: For some reason, iTunes sometimes lies about the size of the
 response that its sending back, claiming to be sending back more than
@@ -134,32 +138,34 @@ All sizes are in bytes and count only the following data block.
 Here's a quick diagram of the flow of requests/responses in a DAAP
 session:
 
+```
 client              server  Description
-      ---/server-info----&gt;       Request for server info
-    &lt;-------msrv-------      server info response
-      ---/content-codes--&gt;       request for content-codes
-    &lt;-------mccr-------      content-codes response
-      ---/login----------&gt;       login
-    &lt;-------mlog-------      login response (with sessionid)
-      ---/update---------&gt;       update request
-    &lt;-------mupd-------      update response (with server
+      ---/server-info---->       Request for server info
+    <-------msrv-------      server info response
+      ---/content-codes-->       request for content-codes
+    <-------mccr-------      content-codes response
+      ---/login---------->       login
+    <-------mlog-------      login response (with sessionid)
+      ---/update--------->       update request
+    <-------mupd-------      update response (with server
                     rev)
-      ---/databases------&gt;       database request
-    &lt;-------avdb-------      data base response (with dbid)
-      ---/db/id/items----&gt;       request songs
-        &lt;-------adbs-------      list of songs in database
-      -/db/id/containers-&gt;       request playlists
-    &lt;-------aply-------      list of playlists in database
-      -/db/id/c/id/items-&gt;       request playlist
-    &lt;-------apso-------      list of songs in playlist
-      -/db/id/c/id/items-&gt;
-    &lt;-------apso-------
-      -/db/id/c/id/items-&gt;
-    &lt;-------apso-------
-      -/db/id/c/id/items-&gt;
-    &lt;-------apso-------
-      -/db/id/items/x.mp3-&gt;      request mp3
-    &lt;--stream-mp3-file-      stream'd mp3
+      ---/databases------>       database request
+    <-------avdb-------      data base response (with dbid)
+      ---/db/id/items---->       request songs
+        <-------adbs-------      list of songs in database
+      -/db/id/containers->       request playlists
+    <-------aply-------      list of playlists in database
+      -/db/id/c/id/items->       request playlist
+    <-------apso-------      list of songs in playlist
+      -/db/id/c/id/items->
+    <-------apso-------
+      -/db/id/c/id/items->
+    <-------apso-------
+      -/db/id/c/id/items->
+    <-------apso-------
+      -/db/id/items/x.mp3->      request mp3
+    <--stream-mp3-file-      stream'd mp3
+```
 
 (For some reason, the iTunes server flags the content type as
 x-dmap-tagged for the streamed mp3 - i don't know if this is laziness
@@ -175,10 +181,14 @@ such as curl/wget to poke at things)
 ### 1. Server Info
 
 Request: daap://server/server-info (or http://server:3689/)
+
 Response: msrv
+
 Description: Provides basic negotiation info on what the server does
     and doesn't support and protocols.
+
 Content: (See appendix A for detailed information on codes)
+```
     msrv
       mstt - status
       apro - daap protocol
@@ -194,26 +204,33 @@ Content: (See appendix A for detailed information on codes)
       msbr - does the server support browsing?
       mspi - does the server support persistent ids?
       mpro - dmap protocol version
-
+```
 
 ### 2. Content Codes
 
 Request: daap://server/content-codes
+
 Response: mccr
+
 Description: Provides a dictionary of content codes, names, and size
     information.
+
 Content: ( See Appendix A for detailed code information )
+```
     mccr
       mstt      status
       mdcl      dictionary entry (one for each type)
         mcna    item name
         mcnm    item number
         mcty    item type
+```
 
 3. Login (and session id)
 
 Request: daap://server/login
+
 Response: mlog
+
 Description: Provides session information to use for the rest of the
     session.  If requiresLogin is set in the server-info, then
     from this point on, a basic http authentication header needs
@@ -226,34 +243,45 @@ Description: Provides session information to use for the rest of the
     the appropriate values).  Username appears to be meaningless.
     A shame - i like the idea of being able to do user level
     permissions.
+
 Content:
+```
     mlog
       mstt  status
-      mlid  session id (used in remaining requests &lt;sid&gt; below)
-
+      mlid  session id (used in remaining requests <sid> below)
+```
 
 ### 4. Update (and server revision)
 
-Request: daap://server/update?session-id=&lt;sid&gt;
+Request: daap://server/update?session-id=<sid>
+
 Response: mupd
+
 Description: There seem to be two forms update requests.  The first is
     the update when logging in, to get the initial data.  The
     second (not yet documented) is to catch updates/changes to
     the server database.  Note the addition of the session-id
     from the login.
+
 Conent:
+```
     mupd
-      musr  the server revision (&lt;rid&gt; below)
+      musr  the server revision (<rid> below)
       mstt
+```
 
 ### 5. Database list
 
-Request: daap://server/databases?session-id=&lt;sid&gt;&amp;revision-id=&lt;rid&gt;
+Request: daap://server/databases?session-id=<sid>&revision-id=<rid>
+
 Response: avdb
+
 Description: This provides a list of databases served up by the
     server.  At present, it appears that only one db per server
     is the norm, but it may be possible to have multiple servers.
+
 Content:
+```
     avdb
       mstt - status
       muty - update type - always 0 for now
@@ -261,24 +289,25 @@ Content:
       mrco - total number of records returned
       mlcl - listing of records
         mlit - single record
-          miid - database id (&lt;dbid&gt; in subsequent requests)
+          miid - database id (<dbid> in subsequent requests)
           mper - database persistent id
           minm - database name
           mimc - number of items (songs) in the database
           mctc - number of containers (playlists) in the database
-
-
+```
 
 ### 6. Song list
 
-Request: daap://server/databases/&lt;dbid&gt;/items?type=music&amp;meta=&lt;list of
-fields&gt;&amp;session-id=&lt;sid&gt;&amp;revision-id=&lt;rid&gt;
+Request: daap://server/databases/<dbid>/items?type=music&meta=<list of fields>&session-id=<sid>&revision-id=<rid>
+
 Response: apso
+
 Description: This is the list of songs in the database.  Every song.
     Note given the format of the records and the request, I believe
     that it's possible to have other types as well.  The standard
     list of fields is (e.g. the value for meta):
 
+```
         dmap.itemid,dmap.itemname,dmap.itemkind,dmap.persistentid,
         daap.songalbum,daap.songartist,daap.songbitrate,
         daap.songbeatsperminute,daap.songcomment,daap.songcompilation,
@@ -290,6 +319,7 @@ Description: This is the list of songs in the database.  Every song.
         daap.songstoptime,daap.songtime,daap.songtrackcount,
         daap.songtracknumber,daap.songuserrating,daap.songyear,
         daap.songdatakind,daap.songdataurl,com.apple.itunes.norm-volume
+```
 
     Note that in the response, it is very important that itemtype(mikd)
     be returned first for each record.  It looks like the order of the
@@ -299,6 +329,7 @@ Description: This is the list of songs in the database.  Every song.
     that is required, however.
 
 Response:
+```
     apso
       mstt - status
       muty - update type (0)
@@ -310,19 +341,25 @@ Response:
           miid - item id
           minm - item name (e.g. the trackname)
           ...  - the remaining fields for the track
+```
 
 ### 7. Playlist list
 
-Request: daap://server/databases/&lt;dbid&gt;/containers?meta=&lt;containermeta&gt;&amp;session-id=&lt;sid&gt;&amp;revision-id=&lt;rid&gt;
+Request: daap://server/databases/<dbid>/containers?meta=<containermeta>&session-id=<sid>&revision-id=<rid>
+
 Response: aply
+
 Description: provides a list of the playlists stored on the server, as
     well as some basic information about them, depending on the
     metadata that the client asks for.  So far, iTunes seems to ask
     for:
+```
         dmap.itemid,dmap.itemname,dma.persistentid,
         com.apple.itunes.smart-playlist
+```
 
 Content:
+```
     aply
       mstt - status
       muty - update type(0)
@@ -335,19 +372,25 @@ Content:
           minm - the playlist's name
           mimc - the number of items in the playlist
           aeSP (optional) - is it a smart playlist
+```
 
 
 ### 8. Playlist
 
-Request: daap://server/databases/&lt;dbid&gt;/containers/&lt;plid&gt;/items?type=music&amp;meta=&lt;playlistmeta&gt;&amp;session-id=&lt;sid&gt;&amp;revision-id=&lt;rid&gt;
+Request: daap://server/databases/<dbid>/containers/<plid>/items?type=music&meta=<playlistmeta>&session-id=<sid>&revision-id=<rid>
+
 Response: apso
+
 Description: provides a list of items in the given playlist, providing
     the requested meta information for each item.  The most commonly
     requested items seem to be:
 
+```
       dmap.itemkind,dmap.itemid,dmap.containeritemid
+```
 
 Content:
+```
     apso
       mstt - status
       muty - update type(0)
@@ -358,11 +401,14 @@ Content:
           mikd - item kind (2 for music)
           miid - itemid of the song
           containeritemid - id in the container
+```
 
 ### 9. Stream song
 
-Request: daap://server/databases/&lt;dbid&gt;/items/&lt;songid&gt;.mp3?session-id=session
+Request: daap://server/databases/<dbid>/items/<songid>.mp3?session-id=session
+
 Response: streamed mp3
+
 Description: Request a song from the server.  Note that it is possible
     to use the 'range' http header to specify the range of a song,
     e.g. the start and end bytes for the track.  It's important for
