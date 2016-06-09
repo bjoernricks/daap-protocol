@@ -19,12 +19,12 @@ hopefully rectify that situation.
 UPDATE: With iTunes 4.0.1 apple introduced a handful of changes that
 break compatability with iTunes 4.0.  The changes are simply:
 
-    o the version number is bumped to 2.0, from 1.0
-    o the sessionid needs to be an unsigned integer, it looks
-      like the way session id's are created caused a signed
-      sessiondid, e.g. -9184 as a signed int, the string sessionid
-      needs to be unsigned, e.g. 4294958112 - I don't know if
-      this goes for all numeric values, or just sessionid
+ * the version number is bumped to 2.0, from 1.0
+ * the sessionid needs to be an unsigned integer, it looks
+   like the way session id's are created caused a signed
+   sessiondid, e.g. -9184 as a signed int, the string sessionid
+   needs to be unsigned, e.g. 4294958112 - I don't know if
+   this goes for all numeric values, or just sessionid
 
 PART 1 - High level overview
 
