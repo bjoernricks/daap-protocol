@@ -30,9 +30,6 @@ break compatability with iTunes 4.0.  The changes are simply:
    needs to be unsigned, e.g. 4294958112 - I don't know if
    this goes for all numeric values, or just sessionid
 
-PART 1 - High level overview
-
-
 
 ## II. DAAP Overview
 
