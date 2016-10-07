@@ -19,6 +19,7 @@ The original version 0.2 can be found at http://tapjam.net/daap/
   * [song] (#9-stream-song)
 * [Appendix A - Content Codes] (#appendix-a---content-codes)
 * [Appendix B - Content Types] (#appendix-b---content-types)
+* [Appendix C - Protocol Changes] (#appendix-c---protocol-changes)
 
 ## I. Introduction
 
@@ -29,17 +30,6 @@ running iTunes.  iTunes uses Bonjour <sup id="a1">[1](#f1)</sup>,
 specifically the multi-cast dns and service discovery bits, to find other local
 machines that happen to be running iTunes and also sharing their
 libraries.
-
-UPDATE: With iTunes 4.0.1 apple introduced a handful of changes that
-break compatability with iTunes 4.0.  The changes are simply:
-
- * the version number is bumped to 2.0, from 1.0
- * the sessionid needs to be an unsigned integer, it looks
-   like the way session id's are created caused a signed
-   sessiondid, e.g. -9184 as a signed int, the string sessionid
-   needs to be unsigned, e.g. 4294958112 - I don't know if
-   this goes for all numeric values, or just sessionid
-
 
 ## II. DAAP Overview
 
@@ -559,6 +549,17 @@ types, however they have not yet been confirmed)
 |11 |version         |   4 byte | represented as 4 single bytes, e.g. 0.1.0.0 or as two shorts, e.g. 1.0 |
 |12 |list            | variable |             |
 
+## Appendix C - Protocol Changes
+
+With iTunes 4.0.1 apple introduced a handful of changes that
+break compatability with iTunes 4.0.  The changes are simply:
+
+ * the version number is bumped to 2.0, from 1.0
+ * the sessionid needs to be an unsigned integer, it looks
+   like the way session id's are created caused a signed
+   sessiondid, e.g. -9184 as a signed int, the string sessionid
+   needs to be unsigned, e.g. 4294958112 - I don't know if
+   this goes for all numeric values, or just sessionid
 
 ## Footnotes
 
