@@ -4,21 +4,31 @@
 
 The original version 0.2 can be found at http://tapjam.net/daap/
 
+* [Introduction](#i-introduction)
+* [DAAP Overview](#ii-daap-overview)
+* [DAAP Packet Format](#iii-under-the-hood---the-daap-packet-format)
+* [Client/Server conversation overview](#iv-clientserver-conversation-overview)
+  * [server-info](#1-server-info)
+  * [content-codes] (#2-content-codes)
+  * [login] (#3-login-and-session-id)
+  * [update] (#4-update-and-server-revision)
+  * [databases] (#5-database-list)
+  * [items] (#6-song-list)
+  * [containers] (#7-playlist-list)
+  * [playlist] (#8-playlist)
+  * [song] (#9-stream-song)
+* [Appendix A - Content Codes] (#appendix-a---content-codes)
+* [Appendix B - Content Types] (#appendix-b---content-types)
+
 ## I. Introduction
 
 
-Apple introduced the Digital Audio Access Protocol (DAAP
-<sup id="a1">[1](#f1)</sup>) with
-iTunes4, to allow iTunes to share its library with other machines also
-running iTunes.  iTunes uses the Rendezvous protocol <sup id="a2">[2](#f2)</sup>,
+Apple introduced the Digital Audio Access Protocol (DAAP) with
+iTunes 4, to allow iTunes to share its library with other machines also
+running iTunes.  iTunes uses Bonjour <sup id="a1">[1](#f1)</sup>,
 specifically the multi-cast dns and service discovery bits, to find other local
 machines that happen to be running iTunes and also sharing their
 libraries.
-
-Rendezvous is well documented in a number of places, and so it will
-not be discussed here.  DAAP, on the other hand, in spite of having an
-IANA defined port number, has yet to be documented.  This will
-hopefully rectify that situation.
 
 UPDATE: With iTunes 4.0.1 apple introduced a handful of changes that
 break compatability with iTunes 4.0.  The changes are simply:
@@ -65,7 +75,7 @@ uses that information to provide a search engine.
 
 
 At it's heart, DAAP is the latest in a long line of protocols that
-uses HTTP <sup id="a3">[3](#f3)</sup> as it's underlying transport mechanism.
+uses HTTP as it's underlying transport mechanism.
 It appears to prefer using the connection-oriented HTTP/1.1.
 *Though there is also some support, it seems, for HTTP/1.0.  This document will
 focus on the HTTP/1.1 implementation, and assume that the HTTP/1.0 implementation
@@ -431,12 +441,10 @@ Description: Request a song from the server.  Note that it is possible
 Content: the raw mp3 stream
 
 
-## Appendix A - iTunes4 content codes
+## Appendix A - Content Codes
 
-
-This is a list of the content codes used by iTunes4.  Note, the
-conversion from four letter code to integer is left as an exercise for
-the reader.  (note: many of these should be self explanatory)
+This is a list of the content codes used by iTunes and DAAP server
+implementations.
 
 |Code |  Type  |  Name             | Description                               |
 |----:|:------:|:-----------------:|:------------------------------------------|
@@ -534,8 +542,7 @@ the reader.  (note: many of these should be self explanatory)
 |aeSP |  byte  |  com.apple.itunes.smart-playlist | |
 
 
-## Appendix B - iTunes4 content types
-
+## Appendix B - Content Types
 
 (Note: the ones in parenthesis are assumed based on the arrangement of
 types, however they have not yet been confirmed)
@@ -558,9 +565,5 @@ types, however they have not yet been confirmed)
 
 ## Footnotes
 
-<b id="f1">1</b> It is my assumption, at least, that this is what DAAP stands for [↩](#a1)
-
-<b id="f2">2</b> Apples implementation of the zeroconf standards [↩](#a2)
-
-<b id="f3">3</b> HyperText Transport Protocol - although, these days it's shunting
-around a lot more than hypertext, no? [↩](#a3)
+<b id="f1">1</b> Apples implementation of the zeroconf standards
+[Wikipedia](https://en.wikipedia.org/wiki/Bonjour_(software)). [↩](#a1)
