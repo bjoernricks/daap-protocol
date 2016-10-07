@@ -94,12 +94,9 @@ tags).
 
 The basic format of DAAP (expanded on below) is:
 
-```
-  |--------------|------------|------------|
-  | tag name     | size       | data       |
-  | 4 byte ASCII | 4 byte int | size bytes |
-  |--------------|------------|------------|
-```
+|tag name      |size        | data       |
+|-------------:|:-----------|-----------:|
+| 4 byte ASCII | 4 byte int | size bytes |
 
 where the length of the data is determined by the size.  The 4 byte
 tag can be represented as either an integer, or as a four character
