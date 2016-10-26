@@ -476,7 +476,7 @@ implementations.
 |mcna | string | dmap.contentcodesname   the full name of the code |
 |mcty |  short | dmap.contentcodestype   the type of the code (see appendix b for type values) |
 ||
-|<span id="dp-mlog">mlog</span>|  list  | dmap.loginresponse | response to a /login |
+|<b id="dp-mlog">mlog</b>|  list  | dmap.loginresponse | response to a /login |
 |mlid |  int   | dmap.sessionid     | the session id for the login session |
 ||
 |mupd |  list  | dmap.updateresponse | response to a /update |
