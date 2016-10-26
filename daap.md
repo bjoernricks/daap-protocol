@@ -17,6 +17,7 @@ The original version 0.2 can be found at http://tapjam.net/daap/
   * [containers] (#7-playlist-list)
   * [playlist] (#8-playlist)
   * [song] (#9-stream-song)
+  * [song artwork] (#10-song-artwork)
 * [Appendix A - Content Codes] (#appendix-a---content-codes)
 * [Appendix B - Content Types] (#appendix-b---content-types)
 * [Appendix C - Protocol Changes] (#appendix-c---protocol-changes)
@@ -428,6 +429,15 @@ Description: Request a song from the server.  Note that it is possible
 
 Content: the raw mp3 stream
 
+### 10. Song artwork
+
+**Request**: daap://server/databases/**&lt;dbid&gt;**/items/**&lt;itemid&gt;**/extra_data/artwork?session-id=**&lt;sid&gt;**
+
+**Response**: image
+
+**Description**:
+
+**Content**: Image as jpeg or png (see content-type header in response from server)
 
 ## Appendix A - Content Codes
 
