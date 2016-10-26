@@ -117,9 +117,9 @@ request:
 or:
 
 
-  * [mlog](#dp-mlog) (36 bytes)
-    * [mstt](#dp-mstt) - 200  (4 bytes)
-    * [mlid](#dp-mlid) - 8158 (4 bytes)
+  * [mlog](#user-content-mlog) (36 bytes)
+    * [mstt](#user-content-mstt) - 200  (4 bytes)
+    * [mlid](#user-content-mlid) - 8158 (4 bytes)
 
 
 NOTE: For some reason, iTunes sometimes lies about the size of the
@@ -438,7 +438,7 @@ implementations.
 |Code |  Type  |  Name             | Description                               |
 |----:|:------:|:-----------------:|:------------------------------------------|
 |mdcl |  list  | dmap.dictionary   | a dictionary entry |
-|mstt |  int   | dmap.status       | the response status code these appear to be http status codes, e.g. 200 |
+|<b id="mstt">mstt</b> |  int   | dmap.status       | the response status code these appear to be http status codes, e.g. 200 |
 |miid |  int   | dmap.itemid       | an item's id |
 |minm | string | dmap.itemname     | an items name |
 |mikd |  byte  | dmap.itemkind     | the kind of item.  So far, only '2' has been seen, an audio file? |
@@ -476,7 +476,7 @@ implementations.
 |mcna | string | dmap.contentcodesname   the full name of the code |
 |mcty |  short | dmap.contentcodestype   the type of the code (see appendix b for type values) |
 ||
-|<a id="dp-mlog">mlog</a>|  list  | dmap.loginresponse | response to a /login |
+|<b id="mlog">mlog</b>|  list  | dmap.loginresponse | response to a /login |
 |mlid |  int   | dmap.sessionid     | the session id for the login session |
 ||
 |mupd |  list  | dmap.updateresponse | response to a /update |
