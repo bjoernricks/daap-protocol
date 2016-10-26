@@ -116,15 +116,11 @@ request:
 
 or:
 
-<ul>
-    <li>mlog (36 bytes)</li>
-    <li>
-        <ul>
-            <li>mstt - 200  (4 bytes)</li>
-            <li>mlid - 8158 (4 bytes)</li>
-        </ul>
-    </li>
-</ul>
+
+  * [mlog](#dp-mlog) (36 bytes)
+    * [mstt](#dp-mstt) - 200  (4 bytes)
+    * [mlid](#dp-mlid) - 8158 (4 bytes)
+
 
 NOTE: For some reason, iTunes sometimes lies about the size of the
 response that its sending back, claiming to be sending back more than
@@ -480,7 +476,7 @@ implementations.
 |mcna | string | dmap.contentcodesname   the full name of the code |
 |mcty |  short | dmap.contentcodestype   the type of the code (see appendix b for type values) |
 ||
-|mlog |  list  | dmap.loginresponse | response to a /login |
+|<span id="dp-mlog">mlog</span>|  list  | dmap.loginresponse | response to a /login |
 |mlid |  int   | dmap.sessionid     | the session id for the login session |
 ||
 |mupd |  list  | dmap.updateresponse | response to a /update |
