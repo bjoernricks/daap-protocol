@@ -116,11 +116,15 @@ request:
 
 or:
 
-<div style="width: 100%;border: 1px solid black">
-    <div>mlog (36 bytes)</div>
-    <div style="margin-left: 10px">mstt - 200  (4 bytes)</div>
-    <div style="margin-left: 10px">mlid - 8158 (4 bytes)</div>
-</div>
+<ul>
+    <li>mlog (36 bytes)</li>
+    <li>
+        <ul>
+            <li>mstt - 200  (4 bytes)</li>
+            <li>mlid - 8158 (4 bytes)</li>
+        </ul>
+    </li>
+</ul>
 
 NOTE: For some reason, iTunes sometimes lies about the size of the
 response that its sending back, claiming to be sending back more than
