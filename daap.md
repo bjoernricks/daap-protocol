@@ -192,31 +192,30 @@ such as curl/wget to poke at things)
 
 ### 1. Server Info
 
-Request: daap://server/server-info (or http://server:3689/)
+**Request**: daap://server/server-info (or http://server:3689/)
 
-Response: msrv
+**Response**: [msrv](#user-content-msrv)
 
-Description: Provides basic negotiation info on what the server does
+**Description**: Provides basic negotiation info on what the server does
     and doesn't support and protocols.
 
-Content: (See appendix A for detailed information on codes)
-```
-    msrv
-      mstt - status
-      apro - daap protocol
-      msix - does the server support indexing?
-      msex - does the server support extensions?
-      msup - does the server support update?
-      msal - does the server support auto-logout?
-      mstm - timeout interval
-      mslr - is login required?
-      msqy - does the server support queries?
-      minm - server name
-      msrs - does the server support resolve?  (needs persistent ids)
-      msbr - does the server support browsing?
-      mspi - does the server support persistent ids?
-      mpro - dmap protocol version
-```
+**Content**: (See appendix A for detailed information on codes)
+
+ * [msrv](#user-content-msrv)
+  * [mstt](#user-content-mstt) - status
+  * [apro](#user-content-apro) - daap protocol
+  * [msix](#user-content-msix) - does the server support indexing?
+  * [msex](#user-content-msex) - does the server support extensions?
+  * [msup](#user-content-msup) - does the server support update?
+  * [msal](#user-content-msal) - does the server support auto-logout?
+  * [mstm](#user-content-mstm) - timeout interval
+  * [mslr](#user-content-mslr) - is login required?
+  * [msqy](#user-content-msqy) - does the server support queries?
+  * [minm](#user-content-minm) - server name
+  * [msrs](#user-content-msrs) - does the server support resolve?  (needs persistent ids)
+  * [msbr](#user-content-msbr) - does the server support browsing?
+  * [mspi](#user-content-mspi) - does the server support persistent ids?
+  * [mpro](#user-content-mpro) - dmap protocol version
 
 ### 2. Content Codes
 
