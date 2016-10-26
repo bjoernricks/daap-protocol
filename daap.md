@@ -1,6 +1,6 @@
 # Digital Audio Access Protocol (DAAP) Protocol documentation
 
-**Version 0.2**
+**Version 0.3**
 
 The original version 0.2 can be found at http://tapjam.net/daap/
 
@@ -20,6 +20,7 @@ The original version 0.2 can be found at http://tapjam.net/daap/
 * [Appendix A - Content Codes] (#appendix-a---content-codes)
 * [Appendix B - Content Types] (#appendix-b---content-types)
 * [Appendix C - Protocol Changes] (#appendix-c---protocol-changes)
+* [Changes to this document] (#changes-to-this-document)
 
 ## I. Introduction
 
@@ -560,6 +561,13 @@ break compatability with iTunes 4.0.  The changes are simply:
    sessiondid, e.g. -9184 as a signed int, the string sessionid
    needs to be unsigned, e.g. 4294958112 - I don't know if
    this goes for all numeric values, or just sessionid
+
+## Changes to this document
+
+ * In Version 0.3
+   * Conversion into Markdown format
+   * Added appendix C - Protocol Changes
+   * Cleanup of chapters I, II and III
 
 ## Footnotes
 
