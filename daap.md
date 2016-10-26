@@ -435,100 +435,100 @@ Content: the raw mp3 stream
 This is a list of the content codes used by iTunes and DAAP server
 implementations.
 
-|Code |  Type  |  Name             | Description                               |
-|----:|:------:|:-----------------:|:------------------------------------------|
-|mdcl |  list  | dmap.dictionary   | a dictionary entry |
-|<b id="mstt">mstt</b> |  int   | dmap.status       | the response status code these appear to be http status codes, e.g. 200 |
-|miid |  int   | dmap.itemid       | an item's id |
-|minm | string | dmap.itemname     | an items name |
-|mikd |  byte  | dmap.itemkind     | the kind of item.  So far, only '2' has been seen, an audio file? |
-|mper |  long  | dmap.persistentid | a persistend id |
-|mcon |  list  | dmap.container    | an arbitrary container |
-|mcti |  int   |dmap.containeritemid | the id of an item in its container |
-|mpco |  int   | dmap.parentcontainerid | |
-|msts | string | dmap.statusstring | |
-|mimc |  int   | dmap.itemcount | number of items in a container |
-|mrco |  int   | dmap.returnedcount | number of items returned in a request |
-|mtco |  int   | dmap.specifiedtotalcount number of items in response to a request |
-|mlcl |  list  | dmap.listing      | a list |
-|mlit |  list  | dmap.listingitem  | a single item in said list |
-|mbcl |  list  | dmap.bag          | |
-|mdcl |  list  | dmap.dictionary   | |
+|Code                 |  Type  |  Name                           | Description                               |
+|--------------------:|:------:|:-------------------------------:|:------------------------------------------|
+|<b id="mdcl">mdcl</b>|  list  | dmap.dictionary                 | a dictionary entry |
+|<b id="mstt">mstt</b>|  int   | dmap.status                     | the response status code these appear to be http status codes, e.g. 200 |
+|<b id="miid">miid</b>|  int   | dmap.itemid                     | an item's id |
+|<b id="minm">minm</b>| string | dmap.itemname                   | an items name |
+|<b id="mikd">mikd</b>|  byte  | dmap.itemkind                   | the kind of item.  So far, only '2' has been seen, an audio file? |
+|<b id="mper">mper</b>|  long  | dmap.persistentid               | a persistend id |
+|<b id="mcon">mcon</b>|  list  | dmap.container                  | an arbitrary container |
+|<b id="mcti">mcti</b>|  int   |dmap.containeritemid             | the id of an item in its container |
+|<b id="mpco">mpco</b>|  int   | dmap.parentcontainerid          | |
+|<b id="msts">msts</b>| string | dmap.statusstring               | |
+|<b id="mimc">mimc</b>|  int   | dmap.itemcount                  | number of items in a container |
+|<b id="mrco">mrco</b>|  int   | dmap.returnedcount              | number of items returned in a request |
+|<b id="mtco">mtco</b>|  int   | dmap.specifiedtotalcount        | number of items in response to a request |
+|<b id="mlcl">mlcl</b>|  list  | dmap.listing                    | a list |
+|<b id="mlit">mlit</b>|  list  | dmap.listingitem                | a single item in said list |
+|<b id="mbcl">mbcl</b>|  list  | dmap.bag                        | |
+|<b id="mdcl">mdcl</b>|  list  | dmap.dictionary                 | |
 ||
-|msrv |  list  | dmap.serverinforesponse response to a /server-info |
-|msaud|  byte  | dmap.authenticationmethod (should be self explanitory) |
-|mslr |  byte  | dmap.loginrequired |
-|mpro | version| dmap.protocolversion |
-|apro | version| daap.protocolversion |
-|msal |  byte  | dmap.supportsuatologout |
-|msup |  byte  | dmap.supportsupdate |
-|mspi |  byte  | dmap.supportspersistentids |
-|msex |  byte  | dmap.supportsextensions |
-|msbr |  byte  | dmap.supportsbrowse |
-|msqy |  byte  | dmap.supportsquery |
-|msix |  byte  | dmap.supportsindex |
-|msrs |  byte  | dmap.supportsresolve |
-|mstm |  int   | dmap.timeoutinterval |
-|msdc |  int   |dmap.databasescount |
+|<b id="msrv">msrv</b>|  list  | dmap.serverinforesponse         | response to a /server-info |
+|<b id="msau">msau</b>|  byte  | dmap.authenticationmethod       | (should be self explanitory) |
+|<b id="mslr">mslr</b>|  byte  | dmap.loginrequired              |
+|<b id="mpro">mpro</b>| version| dmap.protocolversion            |
+|<b id="apro">apro</b>| version| daap.protocolversion            |
+|<b id="msal">msal</b>|  byte  | dmap.supportsuatologout         |
+|<b id="msup">msup</b>|  byte  | dmap.supportsupdate             |
+|<b id="mspi">mspi</b>|  byte  | dmap.supportspersistentids      |
+|<b id="msex">msex</b>|  byte  | dmap.supportsextensions         |
+|<b id="msbr">msbr</b>|  byte  | dmap.supportsbrowse             |
+|<b id="msqy">msqy</b>|  byte  | dmap.supportsquery              |
+|<b id="msix">msix</b>|  byte  | dmap.supportsindex              |
+|<b id="msrs">msrs</b>|  byte  | dmap.supportsresolve            |
+|<b id="mstm">mstm</b>|  int   | dmap.timeoutinterval            |
+|<b id="msdc">msdc</b>|  int   |dmap.databasescount              |
 ||
-|mccr |  list  | dmap.contentcodesresponse   the response to the content-codes request |
-|mcnm |  int   | dmap.contentcodesnumber the four letter code |
-|mcna | string | dmap.contentcodesname   the full name of the code |
-|mcty |  short | dmap.contentcodestype   the type of the code (see appendix b for type values) |
+|<b id="mccr">mccr</b>|  list  | dmap.contentcodesresponse       | the response to the content-codes request |
+|<b id="mcnm">mcnm</b>|  int   | dmap.contentcodesnumber         | the four letter code |
+|<b id="mcna">mcna</b>| string | dmap.contentcodesname           | the full name of the code |
+|<b id="mcty">mcty</b>|  short | dmap.contentcodestype           | the type of the code (see appendix b for type values) |
 ||
-|<b id="mlog">mlog</b>|  list  | dmap.loginresponse | response to a /login |
-|mlid |  int   | dmap.sessionid     | the session id for the login session |
+|<b id="mlog">mlog</b>|  list  | dmap.loginresponse              | response to a /login |
+|<b id="mlid">mlid</b>|  int   | dmap.sessionid                  | the session id for the login session |
 ||
-|mupd |  list  | dmap.updateresponse | response to a /update |
-|msur |  int   | dmap.serverrevision | revision to use for requests |
-|muty |  byte  | dmap.updatetype | |
-|mudl |  list  | dmap.deletedidlisting | used in updates?  (document soon) |
+|<b id="mupd">mupd</b>|  list  | dmap.updateresponse             | response to a /update |
+|<b id="msur">msur</b>|  int   | dmap.serverrevision             | revision to use for requests |
+|<b id="muty">muty</b>|  byte  | dmap.updatetype                 | |
+|<b id="mudl">mudl</b>|  list  | dmap.deletedidlisting           | used in updates? (document soon) |
 ||
-|avdb |  list  | daap.serverdatabases |  response to a /databases |
-|abro |  list  | daap.databasebrowse | |
-|abal |  list  | daap.browsealbumlistung | |
-|abar |  list  | daap.browseartistlisting | |
-|abcp |  list  | daap.browsecomposerlisting | |
-|abgn |  list  | daap.browsegenrelisting | |
+|<b id="avdb">avdb</b>|  list  | daap.serverdatabases            | response to a /databases |
+|<b id="abro">abro</b>|  list  | daap.databasebrowse             | |
+|<b id="abal">abal</b>|  list  | daap.browsealbumlistung         | |
+|<b id="abar">abar</b>|  list  | daap.browseartistlisting        | |
+|<b id="abcp">abcp</b>|  list  | daap.browsecomposerlisting      | |
+|<b id="abgn">abgn</b>|  list  | daap.browsegenrelisting         | |
 ||
-|adbs |  list  | daap.databasesongs | repsoonse to a /databases/id/items |
-|asal |  string| daap.songalbum     | the song ones should be self exp. |
-|asar |  string| daap.songartist | |
-|asbt |  short | daap.songsbeatsperminute | |
-|asbr |  short | daap.songbitrate | |
-|ascm |  string| daap.songcomment | |
-|asco |  byte  | daap.songcompilation | |
-|asda |  date  | daap.songdateadded | |
-|asdm |  date  | daap.songdatemodified | |
-|asdc |  short | daap.songdisccount | |
-|asdn |  short | daap.songdiscnumber | |
-|asdb |  byte  | daap.songdisabled | |
-|aseq |  string| daap.songeqpreset | |
-|asfm |  string| daap.songformat | |
-|asgn |  string| daap.songgenre | |
-|asdt |  string| daap.songdescription | |
-|asrv |  byte  | daap.songrelativevolume | |
-|assr |  int   | daap.songsamplerate | |
-|assz |  int   | daap.songsize | |
-|asst |  int   | daap.songstarttime | (in milliseconds) |
-|assp |  int   | daap.songstoptime  | (in milliseconds) |
-|astm |  int   | daap.songtime      | (in milliseconds) |
-|astc |  short | daap.songtrackcount | |
-|astn |  short | daap.songtracknumber | |
-|asur |  byte  | daap.songuserrating | |
-|asyr |  short | daap.songyear | |
-|asdk |  byte  | daap.songdatakind | |
-|asul |  string| daap.songdataurl | |
+|<b id="adbs">adbs</b>|  list  | daap.databasesongs              | response to a /databases/id/items |
+|<b id="asal">asal</b>|  string| daap.songalbum                  | the song ones should be self exp. |
+|<b id="asar">asar</b>|  string| daap.songartist                 | |
+|<b id="asbt">asbt</b>|  short | daap.songsbeatsperminute        | |
+|<b id="asbr">asbr</b>|  short | daap.songbitrate                | |
+|<b id="ascm">ascm</b>|  string| daap.songcomment                | |
+|<b id="asco">asco</b>|  byte  | daap.songcompilation            | |
+|<b id="asda">asda</b>|  date  | daap.songdateadded              | |
+|<b id="asdm">asdm</b>|  date  | daap.songdatemodified           | |
+|<b id="asdc">asdc</b>|  short | daap.songdisccount              | |
+|<b id="asdn">asdn</b>|  short | daap.songdiscnumber             | |
+|<b id="asdb">asdb</b>|  byte  | daap.songdisabled               | |
+|<b id="aseq">aseq</b>|  string| daap.songeqpreset               | |
+|<b id="asfm">asfm</b>|  string| daap.songformat                 | |
+|<b id="asgn">asgn</b>|  string| daap.songgenre                  | |
+|<b id="asdt">asdt</b>|  string| daap.songdescription            | |
+|<b id="asrv">asrv</b>|  byte  | daap.songrelativevolume         | |
+|<b id="assr">assr</b>|  int   | daap.songsamplerate             | |
+|<b id="assz">assz</b>|  int   | daap.songsize                   | |
+|<b id="asst">asst</b>|  int   | daap.songstarttime              | (in milliseconds) |
+|<b id="assp">assp</b>|  int   | daap.songstoptime               | (in milliseconds) |
+|<b id="astm">astm</b>|  int   | daap.songtime                   | (in milliseconds) |
+|<b id="astc">astc</b>|  short | daap.songtrackcount             | |
+|<b id="astn">astn</b>|  short | daap.songtracknumber            | |
+|<b id="asur">asur</b>|  byte  | daap.songuserrating             | |
+|<b id="asyr">asyr</b>|  short | daap.songyear                   | |
+|<b id="asdk">asdk</b>|  byte  | daap.songdatakind               | |
+|<b id="asul">asul</b>|  string| daap.songdataurl                | |
 ||
-|aply |  list  | daap.databaseplaylists |  response to /databases/id/containers |
-|abpl |  byte  | daap.baseplaylist | |
-| |
-|apso |  list  | daap.playlistsongs  response to /databases/id/containers/id/items |
-|prsv |  list  | daap.resolve | |
-|arif |  list  | daap.resolveinfo | |
-| |
-|aeNV |  int   | com.apple.itunes.norm-volume | |
-|aeSP |  byte  |  com.apple.itunes.smart-playlist | |
+|<b id="aply">aply</b>|  list  | daap.databaseplaylists          | response to /databases/id/containers |
+|<b id="abpl">abpl</b>|  byte  | daap.baseplaylist               | |
+||
+|<b id="apso">apso</b>|  list  | daap.playlistsongs              | response to /databases/id/containers/id/items |
+|<b id="prsv">prsv</b>|  list  | daap.resolve                    | |
+|<b id="arif">arif</b>|  list  | daap.resolveinfo                | |
+||
+|<b id="aeNV">aeNV</b>|  int   | com.apple.itunes.norm-volume    | |
+|<b id="aeSP">aeSP</b>|  byte  | com.apple.itunes.smart-playlist | |
 
 
 ## Appendix B - Content Types
